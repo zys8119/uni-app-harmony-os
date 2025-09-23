@@ -1,6 +1,6 @@
 <template>
-	<view class="content bg-#d8d8d8 h-full p-15px">
-		<scroll-view>
+	<view class="content bg-#d8d8d8 h-full p-15px abs-content abs-f">
+		<scroll-view class="h-full" scroll-y>
 			<view class="flex-v gap-10px">
 				<view class="flex-center-start gap-10px">
 					<view class="flex-shrink-0 bg-#9b9b93 text-#fbad51 flex-center w-50px h-70px b-rd-5px">状态:</view>
@@ -24,7 +24,7 @@
 						</view>
 					</scroll-view>
 				</view>
-				<view v-for="i in 100">{{i}}</view>
+				<view v-for="i in 100">{{ i }}</view>
 			</view>
 		</scroll-view>
 	</view>
