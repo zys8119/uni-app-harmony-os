@@ -1,0 +1,78 @@
+export interface Uni {
+  /**
+		* openAppProduct()
+		* @description
+		* 跳转应用市场详情页
+		* @param {OpenAppProductOptions}  options
+		* @return {void}
+		* @example
+		 ```typescript
+			uni.openAppProduct({});
+		 ```
+		*/
+  openAppProduct(options: OpenAppProductOptions): void;
+}
+
+export type OpenAppProduct = (options: OpenAppProductOptions) => void;
+export type OpenAppProductSuccess = {
+  /**
+   * 错误信息
+   */
+  errMsg: string;
+};
+export type OpenAppProductSuccessCallback = (
+  result: OpenAppProductSuccess
+) => void;
+export type OpenAppProductFail = {
+  /**
+   * 错误信息
+   */
+  errMsg: string;
+};
+export type OpenAppProductFailCallback = (result: OpenAppProductFail) => void;
+export type OpenAppProductComplete = {
+  /**
+   * 错误信息
+   */
+  errMsg: string;
+};
+export type OpenAppProductCompleteCallback = (
+  result: OpenAppProductComplete
+) => void;
+export type OpenAppProductOptions = {
+  /**
+   * 接口调用成功的回调函数
+   * @defaultValue null
+   */
+  success?: OpenAppProductSuccessCallback | null;
+  /**
+   * 接口调用失败的回调函数
+   * @defaultValue null
+   */
+  fail?: OpenAppProductFailCallback | null;
+  /**
+   * 接口调用结束的回调函数（调用成功、失败都会执行）
+   * @defaultValue null
+   */
+  complete?: OpenAppProductCompleteCallback | null;
+};
+
+export interface NativeEmbedEvent {
+  detail: object;
+}
+
+export interface NativeEmbedBuilderOptions {
+  width: number;
+  height: number;
+  on?: Map<string, (event?: NativeEmbedEvent) => void>;
+}
+
+export interface DefineNativeEmbedOptions<
+  T extends NativeEmbedBuilderOptions = NativeEmbedBuilderOptions
+> {
+  builder: (options: T) => void;
+}
+
+export declare function defineNativeEmbed<
+  T extends NativeEmbedBuilderOptions = NativeEmbedBuilderOptions
+>(tag: string, options: DefineNativeEmbedOptions<T>): void;

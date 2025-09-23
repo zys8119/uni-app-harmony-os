@@ -1,0 +1,4 @@
+import "./button.ets";
+export function openAppProduct() {
+  return 666;
+}

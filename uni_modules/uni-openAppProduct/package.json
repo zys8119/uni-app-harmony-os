@@ -1,0 +1,17 @@
+{
+  "uni_modules": {
+    "uni-ext-api": {
+      "uni": {
+        "openAppProduct": {
+          "name": "openAppProduct",
+          "app": {
+            "js": false,
+            "kotlin": false,
+            "swift": false,
+            "arkts": true
+          }
+        }
+      }
+    }
+  }
+}
