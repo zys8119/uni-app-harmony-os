@@ -1,0 +1,140 @@
+import { tag } from "@kit.ConnectivityKit";
+import { BusinessError } from "@kit.BasicServicesKit";
+import { hilog } from "@kit.PerformanceAnalysisKit";
+import { bundleManager } from "@kit.AbilityKit";
+
+async function readerModeCb(error: BusinessError, tagInfo: tag.TagInfo) {
+  if (!error) {
+    // 获取特定技术类型的NFC标签对象
+    if (tagInfo == null || tagInfo == undefined) {
+      hilog.error(0x0000, "testTag", "readerModeCb tagInfo is invalid");
+      return;
+    }
+    if (tagInfo.uid == null || tagInfo.uid == undefined) {
+      hilog.error(0x0000, "testTag", "readerModeCb uid is invalid");
+      return;
+    }
+    if (
+      tagInfo.technology == null ||
+      tagInfo.technology == undefined ||
+      tagInfo.technology.length == 0
+    ) {
+      hilog.error(0x0000, "testTag", "readerModeCb technology is invalid");
+      return;
+    }
+
+    // 执行读写接口完成标签数据的读取或写入数据到标签
+    // use the IsoDep technology to access this nfc tag.
+    let isoDep: tag.IsoDepTag | null = null;
+    for (let i = 0; i < tagInfo.technology.length; i++) {
+      if (tagInfo.technology[i] == tag.ISO_DEP) {
+        try {
+          isoDep = tag.getIsoDep(tagInfo);
+        } catch (error) {
+          hilog.error(
+            0x0000,
+            "testTag",
+            "readerModeCb getIsoDep errCode: " +
+              (error as BusinessError).code +
+              ", errMessage: " +
+              (error as BusinessError).message
+          );
+          return;
+        }
+      }
+      // use other technology to access this nfc tag if necessary.
+    }
+    if (isoDep == undefined) {
+      hilog.error(0x0000, "testTag", "readerModeCb getIsoDep is invalid");
+      return;
+    }
+
+    // connect to this nfc tag using IsoDep technology.
+    try {
+      isoDep.connect();
+    } catch (error) {
+      hilog.error(
+        0x0000,
+        "testTag",
+        "readerModeCb isoDep.connect errCode: " +
+          (error as BusinessError).code +
+          ", errMessage: " +
+          (error as BusinessError).message
+      );
+      return;
+    }
+    if (!isoDep.isConnected()) {
+      hilog.error(
+        0x0000,
+        "testTag",
+        "readerModeCb isoDep.isConnected() false."
+      );
+      return;
+    }
+
+    // transmit data to the connected tag.
+    let cmdData = [0x01, 0x02, 0x03, 0x04]; // please change the raw data to be correct.
+    try {
+      isoDep
+        .transmit(cmdData)
+        .then((response: number[]) => {
+          hilog.info(
+            0x0000,
+            "testTag",
+            "readerModeCb isoDep.transmit() response = %{public}s.",
+            JSON.stringify(response)
+          );
+        })
+        .catch((err: BusinessError) => {
+          hilog.error(
+            0x0000,
+            "testTag",
+            "readerModeCb isoDep.transmit errCode: " +
+              err.code +
+              ", errMessage: " +
+              err.message
+          );
+          return;
+        });
+    } catch (busiError) {
+      hilog.error(
+        0x0000,
+        "testTag",
+        "readerModeCb isoDep.transmit errCode: " +
+          (busiError as BusinessError).code +
+          ", errMessage: " +
+          (busiError as BusinessError).message
+      );
+      return;
+    }
+  } else {
+    hilog.info(
+      0x0000,
+      "testTag",
+      "readerModeCb readerModeCb errCode: " +
+        error.code +
+        ", errMessage: " +
+        error.message
+    );
+  }
+}
+export async function openNFC() {
+  const nfcTagElementName: bundleManager.ElementName = {
+    bundleName: "",
+    abilityName: "",
+    moduleName: "ewant.moduleNam",
+  };
+  let techList: number[] = [tag.NFC_A, tag.NFC_B, tag.NFC_F, tag.NFC_V];
+  try {
+    tag.on("readerMode", nfcTagElementName, techList, readerModeCb);
+  } catch (error) {
+    hilog.error(
+      0x0000,
+      "testTag",
+      "on readerMode errCode: " +
+        (error as BusinessError).code +
+        ", errMessage: " +
+        (error as BusinessError).message
+    );
+  }
+}
