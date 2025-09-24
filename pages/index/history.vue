@@ -1,0 +1,33 @@
+<template>
+	<view class="bg-#d8d8d8 h-full abs-content abs-f">
+		<scroll-view class="h-1" scroll-y>
+			<view>
+				<view>序号</view>
+				<view>UID</view>
+				<view>时间</view>
+			</view>
+		</scroll-view>
+	</view>
+</template>
+
+<script setup lang="uts">
+import {  ref } from "vue";
+import { onReady } from '@dcloudio/uni-app'
+const list = ref([
+	{ label: '输出端段路次数', value: '0次' },
+	{ label: '充电温度保护次数', value: '0次' },
+	{ label: '放电温度保护次数', value: '0次' },
+	{ label: '历史最高温', value: '0℃' },
+	{ label: '历史最低温', value: '0℃' },
+	{ label: '历史最高电流', value: '0A' },
+	{ label: '当前温度', value: '0℃' },
+	{ label: '输出端1过流次数', value: '0次' },
+	{ label: '输出端1短路次数', value: '0次' },
+	{ label: '输出端1过流次数', value: '0次' },
+	{ label: '输出端1短路次数', value: '0次' },
+	{ label: '电池剩余容量', value: '0' },
+	{ label: '电池容量衰减度', value: '0' },
+])
+</script>
+
+<style></style>

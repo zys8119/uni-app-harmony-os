@@ -9,6 +9,7 @@
 .flex-v{display:flex;flex-direction:column;}
 /* layer: default */
 .mr-15px{margin-right:15px;}
+.h-1{height:0.25rem;}
 .h-70px{height:70px;}
 .h-full{height:100%;}
 .w-100\%{width:100%;}
