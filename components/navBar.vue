@@ -28,7 +28,7 @@
     </uniNavBar>
 </template>
 <script setup lang="uts">
-// import XLSX from "xlsx";
+import XLSX from "xlsx";
 import uniNavBar from '@/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.vue'
 import { ref } from "vue";
 const props = defineProps<{
@@ -44,7 +44,9 @@ const closeMenu = ()=>{
 const back=()=>{
 	uni.navigateBack()
 }
-export function exportExcel(data, filename = "数据.xlsx") {
+const exportExcel = (data, filename = "数据.xlsx")=> {
+    console.log("导出数据")
+    console.log(XLSX)
 //   // 1. 将数据转为 Sheet
 //   const worksheet = XLSX.utils.json_to_sheet(data);
 //   const workbook = XLSX.utils.book_new();
