@@ -7,7 +7,7 @@
 					<scroll-view class="of-hidden" scroll-x>
 						<view class="flex gap-5px h-70px">
 							<view v-for="i in 10" :key="i" class="abs-r">
-								<image class="w-50px h-70px" src="/static/dianci.png"></image>
+								<image class="w-40px h-70px" src="/static/dianci.png"></image>
 								<view class="abs-content flex-center">B7</view>
 							</view>
 						</view>
@@ -28,7 +28,7 @@
 					<scroll-view class="of-hidden" scroll-x>
 						<view class="flex gap-5px h-70px">
 							<view v-for="i in 10" :key="i" class="abs-r">
-								<image class="w-50px h-70px" src="/static/dianci.png"></image>
+								<image class="w-40px h-70px" src="/static/dianci.png"></image>
 								<view class="abs-content flex-center">B7-{{ i }}</view>
 							</view>
 						</view>
@@ -52,17 +52,17 @@
 						</view>
 					</view>
 				</view>
-				<view class="flex-center-start gap-10px">
+				<view class="flex-center-start gap-10px text-#a08b95">
 					<view class="bg-op-50% bg-#fff b-rd-5px p-10px flex-1 flex-v gap-10px lh-40px">
-						<view class="flex-center">总充电时间</view>
+						<view class="flex-center ">总充电时间</view>
 						<view class="flex-center b-rd-3px bg-#fff">3小时31分钟</view>
-						<view class="flex-center">充电次数</view>
+						<view class="flex-center ">充电次数</view>
 						<view class="flex-center b-rd-3px bg-#fff">85次</view>
 					</view>
 					<view class="bg-op-50% bg-#fff b-rd-5px p-10px flex-1 flex-v gap-10px lh-40px">
-						<view class="flex-center">总放电时间</view>
+						<view class="flex-center ">总放电时间</view>
 						<view class="flex-center b-rd-3px bg-#fff">0分钟</view>
-						<view class="flex-center">放电次数</view>
+						<view class="flex-center ">放电次数</view>
 						<view class="flex-center b-rd-3px bg-#fff">85次</view>
 					</view>
 				</view>
@@ -79,6 +79,14 @@
 					<view class="flex-1 flex justify-end">
 						<view class="bg-#fff p-x-15px b-rd-5px mr-15px   flex-center w-100%">
 							F3CC82A5665002E0
+						</view>
+					</view>
+				</view>
+				<view class="flex-center-start gap-10px bg-#fff lh-40px b-rd-5px p-10px bg-op-50%">
+					<view class="flex-shrink-0 text-#a08b95">放电过流次数</view>
+					<view class="flex-1 flex justify-end">
+						<view class="bg-#fff p-x-15px b-rd-5px mr-15px   flex-center">
+							7次
 						</view>
 					</view>
 				</view>
