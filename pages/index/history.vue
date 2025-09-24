@@ -1,7 +1,10 @@
 <template>
-	<view>
-		<Table :columns="columns" :list="list">
-		</Table>
+	<view class="abs-content flex-v abs-f h-full">
+		<navBar title="历史记录" claas="z-3"></navBar>
+		<view class="abs-r flex-1 z-2">
+			<Table :columns="columns" :list="list">
+			</Table>
+		</view>
 	</view>
 </template>
 
@@ -9,6 +12,7 @@
 import {  ref } from "vue";
 import { onReady } from '@dcloudio/uni-app'
 import Table from '@/components/table.vue'
+import navBar from '@/components/navBar.vue'
 const columns = ref([
 	{ label: '序号', key: 'index',index:true },
 	{ label: 'UID', key: 'label' },

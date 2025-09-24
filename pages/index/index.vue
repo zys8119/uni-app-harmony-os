@@ -1,17 +1,6 @@
 <template>
 	<view class="content bg-#d8d8d8 h-full abs-content abs-f flex-v">
-		<uniNavBar statusBar title="">
-			<template #left>
-				<icon type="&#xe66f;" size="26" />
-				<view class="iconfont text-25px">
-					&#xe61e;
-				</view>
-			</template>
-			<template #default>
-				<view class="text-25px flex-center">历史记录</view>
-			</template>
-		</uniNavBar>
-		<scroll-view class="flex-1" scroll-y>
+		<scroll-view class="flex-1 of-hidden" scroll-y>
 			<view class="flex-v gap-10px  p-15px">
 				<view class="flex-center-start gap-10px">
 					<view class="flex-shrink-0 bg-#9b9b93 text-#fbad51 flex-center w-50px h-70px b-rd-5px"
@@ -111,7 +100,6 @@
 <script setup lang="uts">
 import {  ref } from "vue";
 import { onReady } from '@dcloudio/uni-app'
-import uniNavBar from '@/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.vue'
 const toListOfIndicators=(url)=>{
 	uni.navigateTo({
 		url

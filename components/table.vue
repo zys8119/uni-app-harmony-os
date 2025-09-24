@@ -1,6 +1,6 @@
 <template>
-    <view>
-        <view class="bg-#d8d8d8 h-full abs-content abs-f flex-v">
+    <view class="abs-content">
+        <view class="bg-#d8d8d8 h-full abs-content flex-v">
             <scroll-view class="flex-1 of-hidden" scroll-y scroll-x :scroll-left="scrollLeft" @scroll="onScroll">
                 <view class="flex">
                     <view class="flex-shrink-0 flex-v" v-for="(item, index) in columns" :key="index">
@@ -9,19 +9,19 @@
                             'bg-#8de1e1': index2 % 2 === 0,
                         }" v-for="(row, index2) in list" :key="index2">
                             <view class="flex-shrink-0 h-20px flex-center of-hidden">
-								<slot>
-									<slot :name="item.key">{{ item.index ? index2 +
-									1 :
-									row[item.key] }}</slot>
-								</slot>
-							</view>
+                                <slot>
+                                    <slot :name="item.key">{{ item.index ? index2 +
+                                        1 :
+                                        row[item.key] }}</slot>
+                                </slot>
+                            </view>
                         </view>
                     </view>
                 </view>
             </scroll-view>
             <view class="p-x-15px p-y-10px text-#827072 bg-#e9dddb">{{ list.length }}行</view>
         </view>
-        <view class="bg-#d8d8d8 h-38px abs-content abs-f flex-v z-100">
+        <view class="bg-#d8d8d8 h-38px abs-content flex-v z-2">
             <scroll-view class="flex-1 of-hidden" scroll-y scroll-x :scroll-left="scrollLeft" @scroll="onScroll"
                 :show-scrollbar="false">
                 <view class="flex">
@@ -31,12 +31,12 @@
                             'bg-#8de1e1': index2 % 2 === 0,
                         }" v-for="(row, index2) in list" :key="index2">
                             <view class="flex-shrink-0 h-20px flex-center of-hidden">
-								<slot>
-									<slot :name="item.key">{{ item.index ? index2 +
-									1 :
-									row[item.key] }}</slot>
-								</slot>
-							</view>
+                                <slot>
+                                    <slot :name="item.key">{{ item.index ? index2 +
+                                        1 :
+                                        row[item.key] }}</slot>
+                                </slot>
+                            </view>
                         </view>
                     </view>
                 </view>
