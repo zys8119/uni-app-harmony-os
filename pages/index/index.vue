@@ -4,7 +4,7 @@
 			<view class="flex-v gap-10px  p-15px">
 				<view class="flex-center-start gap-10px">
 					<view class="flex-shrink-0 bg-#9b9b93 text-#fbad51 flex-center w-50px h-70px b-rd-5px"
-						@click="toListOfIndicators">状态:</view>
+						@click="toListOfIndicators('/pages/index/listOfIndicators')">状态:</view>
 					<scroll-view class="of-hidden" scroll-x>
 						<view class="flex gap-5px h-70px">
 							<view v-for="i in 10" :key="i" class="abs-r">
@@ -15,7 +15,8 @@
 					</scroll-view>
 				</view>
 				<view class="flex-center-start gap-10px bg-#fff lh-40px b-rd-5px p-10px bg-op-50%">
-					<view class="flex-shrink-0 text-#dbd25b">电压(V)</view>
+					<view class="flex-shrink-0 text-#dbd25b" @click="toListOfIndicators('/pages/index/history')">电压(V)
+					</view>
 					<scroll-view class="of-hidden" scroll-x>
 						<view class="flex gap-5px">
 							<view v-for="i in 10" :key="i" class="abs-r bg-#fff p-x-5px b-rd-5px">
@@ -99,9 +100,9 @@
 <script setup lang="uts">
 import {  ref } from "vue";
 import { onReady } from '@dcloudio/uni-app'
-const toListOfIndicators=()=>{
+const toListOfIndicators=(url)=>{
 	uni.navigateTo({
-		url:'/pages/index/listOfIndicators'
+		url
 	})
 }
 </script>
