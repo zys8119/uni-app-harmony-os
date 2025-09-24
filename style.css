@@ -1,0 +1,19 @@
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: "iconfont"; /* Project id 5025661 */
+  src: url("//at.alicdn.com/t/c/font_5025661_l4y7nwwe4mk.eot?t=1758702237289"); /* IE9 */
+  src: url("//at.alicdn.com/t/c/font_5025661_l4y7nwwe4mk.eot?t=1758702237289#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */
+      url("data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAQEAAsAAAAACDwAAAO1AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHFQGYACDHAqDaINJATYCJAMQCwoABCAFhGcHRRtOB8iemjwJpLLG+VjctqmqAEEgkGiNzCw9ITggbKsINPCeLABIIFV2dSQBJZCuvkmdaX4A0vQI7Hckx288WUmeYcNuuPFKMHUF2jqWh7VNAwSEmR12GmDN3iHb1/to2gDjfGQjPF8Dn8//vePfsEQvCDXGpDEGdsIHVL71AzXWsg2Yd/KAPA3Y1QJ9Sc9LECCaRrWY/tbuYSp4u0gMKh6HXSyQpct2RRYpX0mL6UgXIhEcdaJBTmJBHVJvgRPR5+UfzfmCwmrsrabf4qBes2yG2a3Qg/6Gny8HnRVgAQ3U7kwvm7uta7FJoBZLdFNzjnYUkUSiYNY6hWFvyPJPJY10pIz94ykQh50aC0Arghp+Ch43kylQI5BhhFHApzIhEogGbgIfgc3J1ViwmJQiLjApKiGOzfZce3T7WqoDXvoNIy+WdHR1PUM6Gd2dOUIHF46cA/9+O3IcBdX8ii0XA6johcCT88GFmLgj5/zZPfTTiuo1iA0+7CsnD4OHR+77e+tobtTidkDMEfzCNvM55vRjzrU+h383BJ2Cj449PC1x7+i3Wji5G9w9ctvf2vG9gFfovpkKUp6ie9wz8MqqewbuEfJhc3pjampjevNAF+/2d/Ndne2rq+1nK37bckcfjwIQ39eX1pza0JDalDbjG39J8Eb+dLK/LHy3Hn9PiP2/12yoNxq7Gv1Cs2Eve1FNbKhWr4Hp+mnKi6bbKHsj+y6iVxDGwhpip0hLAzk7vsVj53qYIvXl0RnkZnDcoHtEleaG6LAo6ah8tqx0pryhvHR2ttSaKS2bRbOymZmyindwBCjFs1EWewH1Uv2FkOgyvQXhrLc5/G/7N+xe9OZcSPX/yBgDwPe/TorsITHQed8WT+d+t7I1RKIxnGBMk9Dj/19CY3h4f8TRjgG+zAgk+zaHPIWcCkIkKRkUEeRAE0kxZdjVsMTQDEckHYimRsv0GFJYWMREAeV2GQiJ7kARzzNoEr2lDPsrLOl+wJHoH6JZLGixGMqTmjAUCXSAhWWgSKaBXAWJ6A5C2aWJuM47CrGtwA0KcvPL4TZoQDxFjO2WCwl5tT5s6qBV2w5qmgksbC5CieQ6CbEq8/JQ01VyJVOnmmCQiIAcgAXLAIXEZEABmRS/bxAkc9GIMJEaDWA2BfSBArnyCVSb1CDl3ckyNjdZIYJAAAQzIR3QKpkhTQ+YAKu53SJIQuRyjvBZKuU5JESV5q4v19/eEiAa+zwjSrQYsbiNouF0Kf6aa1kxdBNDg081FAUAAAA=")
+      format("woff2"),
+    url("//at.alicdn.com/t/c/font_5025661_l4y7nwwe4mk.woff?t=1758702237289")
+      format("woff"),
+    url("//at.alicdn.com/t/c/font_5025661_l4y7nwwe4mk.ttf?t=1758702237289")
+      format("truetype"),
+    url("//at.alicdn.com/t/c/font_5025661_l4y7nwwe4mk.svg?t=1758702237289#iconfont")
+      format("svg");
+}
+.iconfont {
+  font-family: iconfont;
+}

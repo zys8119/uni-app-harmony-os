@@ -4,7 +4,9 @@
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "锂安智能电池包售后服务系统"
+        "navigationBarTitleText": "锂安智能电池包售后服务系统",
+        "backgroundTextStyle": "light",
+		"navigationStyle": "custom"
       }
     },
     {

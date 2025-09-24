@@ -1,5 +1,6 @@
 // import "@/uni_modules/uni-openAppProduct";
 import "./uno.css";
+import "./style.css";
 import App from "./App";
 
 // #ifndef VUE3
