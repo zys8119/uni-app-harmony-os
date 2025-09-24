@@ -62,7 +62,7 @@ const exportExcel = (data, filename = "数据.xlsx")=> {
         const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
         console.log(blob);
     } catch (error) {
-        console.log(error);
+        console.log(error.stack);
     }
     uni.hideLoading();
   
