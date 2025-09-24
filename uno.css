@@ -34,4 +34,5 @@
 .text-\#a08b95{--un-text-opacity:1;color:rgb(160 139 149 / var(--un-text-opacity)) /* #a08b95 */;}
 .text-\#dbd25b{--un-text-opacity:1;color:rgb(219 210 91 / var(--un-text-opacity)) /* #dbd25b */;}
 .text-\#fbad51{--un-text-opacity:1;color:rgb(251 173 81 / var(--un-text-opacity)) /* #fbad51 */;}
+.lh-30px{line-height:30px;}
 .lh-40px{line-height:40px;}

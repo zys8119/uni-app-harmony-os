@@ -3,7 +3,8 @@
 		<scroll-view class="h-full" scroll-y>
 			<view class="flex-v gap-10px  p-15px">
 				<view class="flex-center-start gap-10px">
-					<view class="flex-shrink-0 bg-#9b9b93 text-#fbad51 flex-center w-50px h-70px b-rd-5px">状态:</view>
+					<view class="flex-shrink-0 bg-#9b9b93 text-#fbad51 flex-center w-50px h-70px b-rd-5px"
+						@click="toListOfIndicators">状态:</view>
 					<scroll-view class="of-hidden" scroll-x>
 						<view class="flex gap-5px h-70px">
 							<view v-for="i in 10" :key="i" class="abs-r">
@@ -98,7 +99,11 @@
 <script setup lang="uts">
 import {  ref } from "vue";
 import { onReady } from '@dcloudio/uni-app'
-
+const toListOfIndicators=()=>{
+	uni.navigateTo({
+		url:'/pages/index/listOfIndicators'
+	})
+}
 </script>
 
 <style></style>
