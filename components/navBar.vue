@@ -28,8 +28,8 @@
     </uniNavBar>
 </template>
 <script setup lang="uts">
-import * as XLSX from "xlsx";
 import uniNavBar from '@/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.vue'
+import m_excel from '@/uni_modules/m-excel/m-excel/js_sdk/index.js'
 import { ref } from "vue";
 const props = defineProps<{
     title: any
@@ -49,18 +49,21 @@ const exportExcel = (data, filename = "数据.xlsx")=> {
         uni.showLoading({
             title: "正在导出..."
         });
-        // 1. 将数据转为 Sheet
-        const worksheet = XLSX.utils.json_to_sheet(data);
-        const workbook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-        // 2. 导出二进制
-        const excelBuffer = XLSX.write(workbook, {
-            bookType: "xlsx",
-            type: "array"
-        });
-        // 3. 保存文件
-        const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
-        console.log(blob);
+        //导出的数组对象
+        let json = [
+            {'张三':'广东人','年龄':'30岁','婚配':'YES'},
+            {'李四':'山东人','年龄':'90岁','婚配':'NO'},
+        ]
+        
+        //适用微信小程序  导出后是否打开 默认值 true。导出后打开文件
+        let isopen = true 
+        
+         m_excel.put(json,isopen).then((e)=>{
+             console.log(e); 
+             uni.showToast({
+                title:e.msg
+             })
+         })
     } catch (error) {
         console.log(error.stack);
     }
