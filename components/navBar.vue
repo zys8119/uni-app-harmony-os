@@ -16,8 +16,8 @@
             </view>
         </template>
         <template #footer v-if="showMenu">
-            <view @click="closeMenu" class="abs-content abs-f z-2"></view>
-            <view class="abs bottom-0px right-0 translate-y-100% z-100">
+            <view @click="closeMenu" class="abs-content abs-f z-100 bg-#f00"></view>
+            <view class="abs bottom-0px right-0 translate-y-100% z-101">
                 <view class="mt-5px  shadow-lg bg-#fff b-rd-5px p-10px m-10px flex-v lh-40px">
                     <view>刷新</view>
                     <view>导出数据</view>
