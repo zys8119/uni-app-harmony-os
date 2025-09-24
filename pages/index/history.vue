@@ -1,12 +1,13 @@
 <template>
-	<view class="bg-#d8d8d8 h-full abs-content abs-f">
-		<scroll-view class="h-1" scroll-y>
+	<view class="bg-#d8d8d8 h-full abs-content abs-f flex-v">
+		<scroll-view class="flex-1" scroll-y>
 			<view>
 				<view>序号</view>
 				<view>UID</view>
 				<view>时间</view>
 			</view>
 		</scroll-view>
+		<view class="p-x-15px p-y-10px text-#827072 bg-#e9dddb">212行</view>
 	</view>
 </template>
 
