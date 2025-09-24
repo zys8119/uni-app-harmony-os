@@ -28,7 +28,7 @@
     </uniNavBar>
 </template>
 <script setup lang="uts">
-import XLSX from "xlsx";
+import * as XLSX from "xlsx";
 import uniNavBar from '@/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.vue'
 import { ref } from "vue";
 const props = defineProps<{
