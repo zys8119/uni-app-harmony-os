@@ -46,7 +46,6 @@
 .bg-\#9b9b93{--un-bg-opacity:1;background-color:rgb(155 155 147 / var(--un-bg-opacity)) /* #9b9b93 */;}
 .bg-\#d8d8d8{--un-bg-opacity:1;background-color:rgb(216 216 216 / var(--un-bg-opacity)) /* #d8d8d8 */;}
 .bg-\#e9dddb{--un-bg-opacity:1;background-color:rgb(233 221 219 / var(--un-bg-opacity)) /* #e9dddb */;}
-.bg-\#f00{--un-bg-opacity:1;background-color:rgb(255 0 0 / var(--un-bg-opacity)) /* #f00 */;}
 .bg-\#fff{--un-bg-opacity:1;background-color:rgb(255 255 255 / var(--un-bg-opacity)) /* #fff */;}
 .bg-op-50\%{--un-bg-opacity:0.5;}
 .p-10px{padding:10px;}
