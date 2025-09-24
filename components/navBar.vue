@@ -45,20 +45,27 @@ const back=()=>{
 	uni.navigateBack()
 }
 const exportExcel = (data, filename = "数据.xlsx")=> {
-    console.log("导出数据")
-    console.log(XLSX)
-//   // 1. 将数据转为 Sheet
-//   const worksheet = XLSX.utils.json_to_sheet(data);
-//   const workbook = XLSX.utils.book_new();
-//   XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-//   // 2. 导出二进制
-//   const excelBuffer = XLSX.write(workbook, {
-//     bookType: "xlsx",
-//     type: "array"
-//   });
-//   // 3. 保存文件
-//   const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
-//   console.log(blob)
+    try {
+        uni.showLoading({
+            title: "正在导出..."
+        });
+        // 1. 将数据转为 Sheet
+        const worksheet = XLSX.utils.json_to_sheet(data);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+        // 2. 导出二进制
+        const excelBuffer = XLSX.write(workbook, {
+            bookType: "xlsx",
+            type: "array"
+        });
+        // 3. 保存文件
+        const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
+        console.log(blob);
+    } catch (error) {
+        console.log(error);
+    }
+    uni.hideLoading();
+  
 }
 </script>
 <style></style>
