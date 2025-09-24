@@ -45,7 +45,7 @@
     </view>
 </template>
 <script setup lang="uts">
-import {  defineProps,ref } from "vue";
+import {  ref } from "vue";
 const props = defineProps<{
 	columns: Array<{
 			label:string
