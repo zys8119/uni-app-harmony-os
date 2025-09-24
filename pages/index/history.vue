@@ -2,7 +2,7 @@
 	<view class="bg-#d8d8d8 h-full abs-content abs-f flex-v">
 		<scroll-view class="flex-1" scroll>
 			<view class="flex">
-				<view v-for="(item, index) in columns" :key="index">
+				<view :class="item.class" v-for="(item, index) in columns" :key="index">
 					<view>{{ item.label }}</view>
 				</view>
 			</view>
@@ -15,9 +15,9 @@
 import {  ref } from "vue";
 import { onReady } from '@dcloudio/uni-app'
 const columns = ref([
-	{ label: '序号', value: '' },
-	{ label: 'UID', value: '' },
-	{ label: '时间', value: '' },
+	{ label: '序号', value: '', class:'w-50px' },
+	{ label: 'UID', value: '', class:'w-50px' },
+	{ label: '时间', value: '', class:'w-50px' },
 ])
 const list = ref([
 	{ label: '输出端段路次数', value: '0次' },
