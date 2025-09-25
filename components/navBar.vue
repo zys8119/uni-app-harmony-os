@@ -48,6 +48,24 @@ const back=()=>{
 	{ "姓名": "张三", "年龄": 25, "城市": "北京" },
 	{ "姓名": "李四", "年龄": 30, "城市": "上海" }
 ];
+function saveDataUrlApp(data, filename = "output.xlsx") {
+// 2. 转成二进制 ArrayBuffer
+  const filePath = `_doc/${filename}`;
+  plus.io.requestFileSystem(plus.io.PRIVATE_DOC, fs => {
+	  console.log(fs)
+    fs.root.getFile(filename, { create: true }, entry => {
+	  console.log(entry)
+      entry.createWriter(writer => {
+	  console.log(entry)
+        writer.onwrite = () => {
+          console.log("写入成功：", entry.toURL());
+          plus.runtime.openFile(entry.toURL()); // 打开文件
+        };
+        writer.write(data as any);
+      });
+    });
+  });
+}
 async function exportExcel() {
     try {
 		uni.showLoading({
@@ -57,14 +75,24 @@ async function exportExcel() {
         const worksheet = XLSX.utils.json_to_sheet(data); // 将数据转换为工作表
         XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1"); // 将工作表添加到工作簿
 
-        const base64 = XLSX.write(workbook, { bookType: 'xlsx', type: 'base64' }); // 将工作簿写入为数组格式
-        // const fileUrl = `data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,${base64}`
-        // console.log(fileUrl)
+        
         const filename = `${Date.now()}.xlsx`
 		const dir = plus.io.convertLocalFileSystemURL("_doc/")
         const filePath = `${dir}${filename}`;
         console.log("dir:",dir)
         console.log("filePath:",filePath)
+        if(!uni.getFileSystemManager){
+            // 安卓平台
+            // const fileDataUrl = `data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,${base64}`
+            // console.log("fileDataUrl:",fileDataUrl)
+            saveDataUrlApp(`
+asda\tasdasd\tasdasd
+asdas\tsdasd\tasdasda
+sdfds\tasda\t撒大家\t撒几点
+			`,filename)
+            return
+        }
+		const base64 = XLSX.write(workbook, { bookType: 'xlsx', type: 'base64' }); // 将工作簿写入为数组格式
 		await new Promise<void>(r=>{
 			uni.getFileSystemManager().access({
 				path:dir,
