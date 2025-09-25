@@ -1,6 +1,6 @@
 import "./button.ets";
 import { openNFC } from "./nfc.uts";
+
 export function openAppProduct() {
-  openNFC();
-  return 666;
+  return openNFC();
 }
