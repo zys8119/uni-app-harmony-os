@@ -71,11 +71,6 @@ async function exportExcel() {
 		uni.showLoading({
 			title:"正在导出中.."
 		})
-        const workbook = XLSX.utils.book_new(); // 创建新的工作簿
-        const worksheet = XLSX.utils.json_to_sheet(data); // 将数据转换为工作表
-        XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1"); // 将工作表添加到工作簿
-
-        
         const filename = `${Date.now()}.xlsx`
 		const dir = plus.io.convertLocalFileSystemURL("_doc/")
         const filePath = `${dir}${filename}`;
@@ -90,8 +85,15 @@ asda\tasdasd\tasdasd
 asdas\tsdasd\tasdasda
 sdfds\tasda\t撒大家\t撒几点
 			`,filename)
+		    uni.hideLoading()
             return
         }
+        const workbook = XLSX.utils.book_new(); // 创建新的工作簿
+        const worksheet = XLSX.utils.json_to_sheet(data); // 将数据转换为工作表
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1"); // 将工作表添加到工作簿
+
+        
+        
 		const base64 = XLSX.write(workbook, { bookType: 'xlsx', type: 'base64' }); // 将工作簿写入为数组格式
 		await new Promise<void>(r=>{
 			uni.getFileSystemManager().access({
@@ -124,21 +126,21 @@ sdfds\tasda\t撒大家\t撒几点
 			title:`文件保存在:${saveUrl}`	
 		})
 		console.log("正在打开文件")
-		uni.getFileSystemManager().openSync({
-			filePath:saveUrl,
-			flag:'r'
-		})
-		console.log("文件打开成功")
-		// uni.openDocument({
+		// uni.getFileSystemManager().openSync({
 		// 	filePath:saveUrl,
-		// 	fileType:'xlsx',
-		// 	success(){
-		// 		console.log("文件打开成功")
-		// 	},
-		// 	fail(err){
-		// 		console.log("文件打开失败:",err)
-		// 	}
+		// 	flag:'r'
 		// })
+		// console.log("文件打开成功")
+		uni.openDocument({
+			filePath:saveUrl,
+			fileType:'xlsx',
+			success(){
+				console.log("文件打开成功")
+			},
+			fail(err){
+				console.log("文件打开失败:",err)
+			}
+		})
 		
     } catch (error) {
          console.log(error,333)
