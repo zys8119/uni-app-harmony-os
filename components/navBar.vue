@@ -50,6 +50,9 @@ const back=()=>{
 ];
 async function exportExcel() {
     try {
+		uni.showLoading({
+			title:"正在导出中.."
+		})
         const workbook = XLSX.utils.book_new(); // 创建新的工作簿
         const worksheet = XLSX.utils.json_to_sheet(data); // 将数据转换为工作表
         XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1"); // 将工作表添加到工作簿
@@ -88,23 +91,31 @@ async function exportExcel() {
 		// 保存文件
 		const saveUrl = uni.getFileSystemManager().saveFileSync(filePath)
 		console.log(saveUrl)
+		uni.hideLoading()
 		uni.showToast({
 			title:`文件保存在:${saveUrl}`	
 		})
 		console.log("正在打开文件")
-		uni.openDocument({
+		uni.getFileSystemManager().openSync({
 			filePath:saveUrl,
-			fileType:'xlsx',
-			success(){
-				console.log("文件打开成功")
-			},
-			fail(err){
-				console.log("文件打开失败:",err)
-			}
+			flag:'r'
 		})
+		console.log("文件打开成功")
+		// uni.openDocument({
+		// 	filePath:saveUrl,
+		// 	fileType:'xlsx',
+		// 	success(){
+		// 		console.log("文件打开成功")
+		// 	},
+		// 	fail(err){
+		// 		console.log("文件打开失败:",err)
+		// 	}
+		// })
 		
     } catch (error) {
          console.log(error,333)
+		 uni.hideLoading()
+		 uni.hideToast()
     }
 	
 }
