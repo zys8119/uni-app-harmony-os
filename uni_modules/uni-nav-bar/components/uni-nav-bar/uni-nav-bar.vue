@@ -8,7 +8,7 @@
 				:style="{ color: themeColor, backgroundColor: themeBgColor, height: navbarHeight, width: showMenuButtonWidth ? navWidth + 'px' : '100%' }"
 				class="uni-navbar__header">
 				<view @tap="onClickLeft" class="uni-navbar__header-btns uni-navbar__header-btns-left"
-					:style="{ width: leftIconWidth }">
+					:style="{ width: leftIconWidth }" v-if="showLeft">
 					<slot name="left">
 						<view class="uni-navbar__content_view" v-if="leftIcon.length > 0">
 							<uni-icons :color="themeColor" :type="leftIcon" size="20" />
@@ -148,6 +148,10 @@ export default {
 		stat: {
 			type: [Boolean, String],
 			default: ''
+		},
+		showLeft: {
+			type: [Boolean],
+			default: true
 		}
 	},
 	data() {

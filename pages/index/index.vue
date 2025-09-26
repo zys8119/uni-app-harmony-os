@@ -1,5 +1,6 @@
 <template>
 	<view class="content bg-#d8d8d8 h-full abs-content abs-f flex-v">
+		<navBar title="锂安智能电池包售后服务系统" :showLeft=false claas="z-3"></navBar>
 		<scroll-view class="flex-1 of-hidden" scroll-y>
 			<view class="flex-v gap-10px  p-15px">
 				<view class="flex-center-start gap-10px">
@@ -100,6 +101,7 @@
 <script setup lang="uts">
 import {  ref } from "vue";
 import { onReady } from '@dcloudio/uni-app'
+import navBar from '@/components/navBar.vue'
 const toListOfIndicators=(url)=>{
 	uni.navigateTo({
 		url
